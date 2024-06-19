@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+
+<head>
+
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+	<title>Bệnh Viện Đa Khoa Vinmec</title>
+
+	<!-- Favicons -->
+	<link type="image/x-icon" href="assets/img/favicon-32x32.png" rel="icon">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- Fontawesome CSS -->
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+
+	<!-- Main Wrapper -->
+	<div class="main-wrapper">
+
+		<!-- Header -->
+		<header class="header">
+			<nav class="navbar navbar-expand-lg header-nav">
+				<div class="navbar-header">
+					<a id="mobile_btn" href="javascript:void(0);">
+						<span class="bar-icon">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</a>
+					<a href="index.jsp" class="navbar-brand logo">
+						<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+					</a>
+				</div>
+				<div class="main-menu-wrapper">
+					<ul class="main-nav">
+						<li>
+							<a href="index.jsp">Trang chủ</a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">Bệnh nhân <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="search.jsp">Tìm kiếm bác sĩ</a></li>
+                                <li><a href="patient-dashboard.jsp">Bảng điều khiển của bệnh nhân</a></li>
+                                <li><a href="favourites.html">Yêu thích</a></li>
+                                <li><a href="chat.html">Trò chuyện</a></li>
+                                <li><a href="profile-settings.jsp">Cài đặt hồ sơ</a></li>
+                                <li><a href="change-password.html">Đổi mật khẩu</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="admin/index.jsp" target="_blank">Quản trị</a>
+                        </li>
+                        <li class="login-link">
+                            <a href="sign.jsp">Đăng nhập / Đăng ký</a>
+						</li>
+					</ul>
+					</div>
+					<ul class="nav header-navbar-rht">
+						<li class="nav-item contact-item">
+							<div class="header-contact-img">
+								<i class="far fa-hospital"></i>
+							</div>
+							<div class="header-contact-detail">
+								<p class="contact-header">Liên hệ</p>
+								<p class="contact-info-header"> 0433636050</p>
+							</div>
+						</li>
+						
+						    <!-- User Menu -->
+						    <li class="nav-item dropdown has-arrow logged-item">
+						        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+						            <span class="user-img">
+						                <img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="<%= loggedInUser.getUser_fullname() %>">
+						            </span>
+						        </a>
+						        <div class="dropdown-menu dropdown-menu-right">
+						            <div class="user-header">
+						                <div class="avatar avatar-sm">
+						                    <img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+						                </div>
+						                <div class="user-text">
+						                    <h6><%= loggedInUser.getUser_fullname() %></h6>
+						                    <p class="text-muted mb-0">Bệnh nhân</p>
+						                </div>
+						            </div>
+						            <a class="dropdown-item" href="patient-dashboard.jsp">Dashboard</a>
+						            <a class="dropdown-item" href="profile-settings.jsp">Cài đặt hồ sơ</a>
+						            <a class="dropdown-item" href="logout.jsp">Đăng xuất</a>
+						        </div>
+						    </li>
+						    <!-- /User Menu -->
+
+				</ul>
+			</nav>
+		</header>
+		<!-- /Header -->
+		<!-- Breadcrumb -->
+      <div class="breadcrumb-bar">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+              <nav aria-label="breadcrumb" class="page-breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="index.jsp">Trang chủ</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Đặt lịch khám bệnh</li>
+                </ol>
+              </nav>
+              <h2 class="breadcrumb-title">Chọn lịch</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Breadcrumb -->
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Lấy thông tin từ URL
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+
+            // Hiển thị thông tin
+            var doctorName = decodeURIComponent(urlParams.get('doctorName'));
+            var rating = decodeURIComponent(urlParams.get('rating'));
+            var address = decodeURIComponent(urlParams.get('address'));
+            var imageSrc = decodeURIComponent(urlParams.get('imageSrc'));
+            var doctorID = decodeURIComponent(urlParams.get('doctorID'));
+
+
+            // Kiểm tra nếu doctorName bị null
+	        if (doctorName === null || doctorName === "null") {
+	            // Chuyển hướng đến search.jsp
+	            window.location.href = 'search.jsp';
+	        } else {
+	            // Hiển thị thông tin trong các phần tử có id tương ứng
+	            $('#doctorName').text(doctorName);
+	            $('#rating').text(rating);
+	            $('#address').text(address);
+	            $('#doctorImage').attr('src', imageSrc);
+	            $('#doctorID').text(doctorID);
+	        }
+        });
+    </script>
+      <!-- Page Content -->
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="booking-doc-info">
+                    <a href="doctor-profile.html" class="booking-doc-img">
+                      <!-- <img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image"> -->
+                      <img id="doctorImage" alt="Doctor Image">
+                    </a>
+                    <div class="booking-info">
+                      <h4>
+                        <a href="doctor-profile.html"><span id="doctorName"></span></a>                                  
+                   
+                      </h4>
+                      <div class="rating">
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star"></i>
+                        <span class="d-inline-block average-rating"><span id="rating"></span></span>
+                      </div>
+                      <p class="text-muted mb-0">
+                        <i class="fas fa-map-marker-alt"></i> <span id="address"></span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Schedule Widget -->
+              <div class="card booking-schedule schedule-widget">
+                <!-- Schedule Header -->
+                <div class="schedule-header">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- Day Slot -->
+                      <div class="day-slot">
+                        <ul>
+                          <li class="left-arrow">
+                            <a href="#" id="prevDay">
+                              <i class="fa fa-chevron-left"></i>
+                            </a>
+                          </li>
+                              <!-- Thêm mã JavaScript và jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Lấy ngày hiện tại
+        var currentDate = new Date();
+        // Tạo mảng chứa 7 ngày bắt đầu từ ngày hiện tại
+        var days = [];
+        for (var i = 0; i < 7; i++) {
+          var day = new Date(currentDate);
+          day.setDate(currentDate.getDate() + i);
+          days.push(day);
+        }
+
+        // Hiển thị danh sách ngày
+        for (var i = 0; i < 7; i++) {
+          var dayOfWeek = days[i].toLocaleDateString('vi-VN', { weekday: 'short' });
+          var dayOfMonth = days[i].getDate();
+          var month = days[i].toLocaleDateString('vi-VN', { month: 'short' });
+          var year = days[i].getFullYear();
+          
+          // Thêm ngày vào danh sách
+          $("div.card.booking-schedule.schedule-widget > div.schedule-header > div > div ul").append(`
+            <li>
+              <span>${dayOfWeek}</span>
+              <span class="slot-date">${dayOfMonth} ${month} <small class="slot-year">${year}</small></span>
+            </li>
+          `);
+        }
+      });
+      // Cập nhật ngày khi bấm nút trái
+      $("#prevDay").on("click", function () {
+        var firstDate = new Date($("ul li:first-child .slot-date").text());
+        firstDate.setDate(firstDate.getDate() - 1);
+        $("ul li:first-child .slot-date").text(`${firstDate.getDate()} ${firstDate.toLocaleDateString('vi-VN', { month: 'short' })} ${firstDate.getFullYear()}`);
+      });
+    </script>
+    <!-- Kết thúc mã JavaScript và jQuery -->
+                          <li class="right-arrow">
+                            <a href="#" id="nextDay">
+                              <i class="fa fa-chevron-right"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- /Day Slot -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /Schedule Header -->
+                <!-- Schedule Content -->
+                <div class="schedule-cont">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <!-- Thêm mã JavaScript và jQuery -->
+					<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+					<script>
+					$(document).ready(function () {
+						// Xử lý khi click vào khung giờ
+						$('.timing').on('click', function (e) {
+						// Ngăn chặn hành vi mặc định của thẻ <a>
+						e.preventDefault();
+
+						// Loại bỏ class 'selected' từ tất cả các khung giờ
+						$('.timing').removeClass('selected');
+
+						// Thêm class 'selected' cho khung giờ được click
+						$(this).addClass('selected');
+
+						// Lấy vị trí của phần tử được click
+						var offsetTop = $(this).offset().top;
+
+						// Cuộn đến vị trí của phần tử được click mà không thay đổi URL
+						window.location.hash = '#' + offsetTop;
+						});
+					});
+					</script>
+					<!-- Kết thúc mã JavaScript và jQuery -->
+                      <!-- Time Slot -->
+                      <div class="time-slot">
+                        <ul class="clearfix">
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing " href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="timing" href="#">
+                              <span>7h - 9h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>9h - 11h</span>
+                              <span>Sáng</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>13h - 15h</span>
+                              <span>Chiều</span>
+                            </a>
+                            <a class="timing" href="#">
+                              <span>15h - 17h</span>
+                              <span>Chiều</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <!-- /Time Slot -->
+                    </div>
+                  </div>
+                </div>
+                <!-- /Schedule Content -->
+              </div>
+              <!-- /Schedule Widget -->
+              <!-- Submit Section -->
+              
+              <div class="submit-section proceed-btn text-right">
+                <a href="checkout.jsp" class="btn btn-primary submit-btn">Tiến hành đặt lịch</a>
+              </div>
+			
+
+              <!-- /Submit Section -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /Page Content -->
+
+			<!-- Footer -->
+		<footer class="footer">
+
+			<!-- Footer Top -->
+			<div class="footer-top">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-3 col-md-6">
+
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-about">
+								<div class="footer-logo">
+									<img src="assets/img/logo.png" alt="logo">
+								</div>
+								<div class="footer-about-content">
+									<p>Hệ thống web site đặt lịch khám bệnh trực tuyến </p>
+									<div class="social-icon">
+										<ul>
+											<li>
+												<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+											</li>
+											<li>
+												<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+											</li>
+											<li>
+												<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+											</li>
+											<li>
+												<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+											</li>
+											<li>
+												<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- /Footer Widget -->
+
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-menu">
+								<h2 class="footer-title">Dành cho bệnh nhân</h2>
+								<ul>
+									<li><a href="search.jsp"><i class="fas fa-angle-double-right"></i> Tìm kiếm bác sĩ</a></li>
+									<li><a href="sign.jsp"><i class="fas fa-angle-double-right"></i> Đăng nhập</a></li>
+									<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Đăng kí</a>
+									</li>
+									<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Đặt lịch</a>
+									</li>
+									<li><a href="patient-dashboard.jsp"><i class="fas fa-angle-double-right"></i>
+											Bảng kiểm soát lịch hẹn</a></li>
+								</ul>
+							</div>
+							<!-- /Footer Widget -->
+
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-menu">
+								<h2 class="footer-title">Bác sĩ</h2>
+								<ul>
+									<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i>
+											Kiểm tra cuộc hẹn</a></li>
+									<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
+									<li><a href="sign.jsp"><i class="fas fa-angle-double-right"></i> Đăng nhập</a></li>
+									<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i>
+											Đăng kí</a></li>
+									<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i>Dashboard của bác sĩ</a></li>
+								</ul>
+							</div>
+							<!-- /Footer Widget -->
+
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+
+							<!-- Footer Widget -->
+							<div class="footer-widget footer-contact">
+								<h2 class="footer-title">Liên hệ</h2>
+								<div class="footer-contact-info">
+									<div class="footer-address">
+										<span><i class="fas fa-map-marker-alt"></i></span>
+										<p> Sở y tế Hà Nội - Bệnh viện đa khoa quốc tế Vinmec<br> 458 Minh Khai, Q. Hai Bà Trưng, Hà Nội </p>
+									</div>
+									<p>
+										<i class="fas fa-phone-alt"></i>
+										0433636050
+									</p>
+									<p class="mb-0">
+										<i class="fas fa-envelope"></i>
+										benhviendakhoaquoctevinmec@email.com
+									</p>
+								</div>
+							</div>
+							<!-- /Footer Widget -->
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- /Footer Top -->
+
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<div class="container-fluid">
+
+					<!-- Copyright -->
+					<div class="copyright">
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<div class="copyright-text">
+									<p class="mb-0"><a href="https://datlichjkhambenhviendanphuong.com"></a></p>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+
+								<!-- Copyright Menu -->
+								<div class="copyright-menu">
+									<ul class="policy-menu">
+										<li><a href="#">Terms and Conditions</a></li>
+										<li><a href="#">Policy</a></li>
+									</ul>
+								</div>
+								<!-- /Copyright Menu -->
+
+							</div>
+						</div>
+					</div>
+					<!-- /Copyright -->
+
+				</div>
+			</div>
+			<!-- /Footer Bottom -->
+
+		</footer>
+		<!-- /Footer -->
+    </div>
+    <!-- /Main Wrapper -->
+    <!-- jQuery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+  </body>
+<!-- Thêm Modal Bootstrap -->
+<div class="modal fade" id="noTimingModal" tabindex="-1" aria-labelledby="noTimingModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="noTimingModalLabel">Thông báo</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  Bạn chưa chọn khung giờ. Vui lòng chọn một khung giờ để tiếp tục.
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- Kết thúc Modal Bootstrap -->
+  
+  <!-- Thêm mã JavaScript và jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+$(document).ready(function () {
+  $('.submit-btn').on('click', function (e) {
+    e.preventDefault();
+
+    var selectedTiming = $('.timing.selected');
+    var selectedTimingIndex = selectedTiming.closest('li').index();
+
+    if (selectedTiming.length === 0) {
+      $('#noTimingModal').modal('show');
+    } else {
+      var doctorName = $('.booking-doc-info h4 a').text();
+      var doctorRating = $('.rating .average-rating').text();
+      var doctorLocation = $('.text-muted').text();
+      var selectedTimingText = selectedTiming.find('span:first-child').text();
+
+      // Lấy ngày hiện tại
+      var currentDate = new Date();
+      // Tính toán ngày tương ứng với index
+      var selectedDate = new Date(currentDate);
+      selectedDate.setDate(currentDate.getDate() + selectedTimingIndex);
+
+      // Format ngày
+      var dayOfWeek = selectedDate.toLocaleDateString('vi-VN', { weekday: 'short' });
+      var dayOfMonth = selectedDate.getDate();
+      var month = selectedDate.toLocaleDateString('vi-VN', { month: 'short' });
+      var year = selectedDate.getFullYear();
+      var formattedSelectedDate = `${dayOfWeek}, ngày ${dayOfMonth} ${month}, năm ${year}`;
+
+	  // Lấy đường dẫn ảnh
+	  // var doctorImageSrc = $('#doctorImage').attr('src');
+    var doctorImageSrc = $('.booking-doc-img img').attr('src');
+    var doctorID2 = doctorID;
+    
+    // Lấy thông tin từ URL
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+
+    // Hiển thị thông tin
+
+    var doctorID = decodeURIComponent(urlParams.get('doctorID'));
+
+      var redirectURL = 'checkout.jsp' +
+        '?doctorName=' + encodeURIComponent(doctorName) +
+        '&doctorRating=' + encodeURIComponent(doctorRating) +
+        '&doctorLocation=' + encodeURIComponent(doctorLocation) +
+        '&selectedTiming=' + encodeURIComponent(selectedTimingText) +
+        '&selectedDate=' + encodeURIComponent(formattedSelectedDate) +
+		    '&doctorImageSrc=' + encodeURIComponent(doctorImageSrc) +
+		    '&doctorID=' + encodeURIComponent(doctorID);
+
+      window.location.href = redirectURL;
+    }
+  });
+});
+
+  </script>
+  <!-- Kết thúc mã JavaScript và jQuery -->
+  
+</html>
