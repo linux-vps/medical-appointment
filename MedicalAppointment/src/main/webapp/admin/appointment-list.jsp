@@ -1,10 +1,10 @@
-<%@page import="HealthCare.process.Speciality"%>
-<%@page import="HealthCare.process.User"%>
-<%@page import="HealthCare.objects.AppointmentObject"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="HealthCare.process.Appointment"%>
 <%@page import="HealthCare.objects.UserObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="jakarta.servlet.http.HttpSession"%>
+<%@ page import="HealthCare.objects.SpecialityObject"%>
+<%@ page import="HealthCare.process.Speciality"%>
+<%@ page import="java.util.List" %>
+
 <!-- Đã tắt gg font, link ảnh đại diện user avatar, script liên quan đến firebase -->
 
 
@@ -43,9 +43,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.0.8/b-3.0.2/b-colvis-3.0.2/b-html5-3.0.2/b-print-3.0.2/date-1.5.2/r-3.0.2/datatables.min.js"></script>
 
-  <!-- Google Fonts -->
-  <!-- <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -367,245 +364,42 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed " href="index.jsp">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link " href="class-list.html">
-          <i class="ri-indent-increase"></i>
-          <span>Danh sách lớp</span>
+	      <li class="nav-item">
+        <a class="nav-link " href="appointment-list.jsp">
+          <i class="bx bx-list-check"></i>
+          <span>Appointments</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+            <li class="nav-item">
+        <a class="nav-link collapsed" href="speciality-list.jsp">
+          <i class="ri-todo-line"></i>
+          <span>Specialities</span>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+        <a class="nav-link collapsed" href="doctor-list.jsp">
+          <i class="ri-user-2-line"></i>
+          <span>Doctors</span>
         </a>
-        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+      </li><!-- End Dashboard Nav -->
+                  <li class="nav-item">
+        <a class="nav-link collapsed" href="patient-list.jsp">
+          <i class="ri-user-heart-line"></i>
+          <span>Patients</span>
         </a>
-        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
-            </a>
-          </li>
-          <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Tables Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
-            </a>
-          </li>
-          <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="sign.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link " href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
+      </li><!-- End Dashboard Nav -->
+ 
 
     </ul>
 
   </aside><!-- End Sidebar-->
+
 
   <main id="main" class="main">
 
@@ -630,49 +424,46 @@
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Doctor Name</th>
-													<th>Speciality</th>
-													<th>Patient Name</th>
-													<th>Apointment Time</th>
-													<th>Status</th>
-													<th class="text-right">Amount</th>
+													<th data-field="column1" class="sorting">#</th>
+									                <th data-field="column2" class="sorting">Specialities</th>
+									                <th data-field="column3" class="text-right sorting">Actions</th>
 												</tr>
 											</thead>
 											<tbody>
-												<% 	Appointment a = new Appointment();
-													Speciality sp = new Speciality();
-													User u = new User();
-													ArrayList<AppointmentObject> apps = a.getAppointmentFromNow(null, 30);
-													for (AppointmentObject app : apps) {
-														UserObject patient = u.getUserById(app.getUser_id());
-														UserObject doctor = u.getUserById(app.getDoctor_id());
+												<%
+												Speciality sp = new Speciality();
+												SpecialityObject searchSP = new SpecialityObject();
+												List<SpecialityObject> splist = sp.getSpecialityObjects(searchSP, 55);
+												for (SpecialityObject speciality : splist) {
 												%>
 												<tr>
+													<td><%=speciality.getSp_id() %></td>
+													
 													<td>
 														<h2 class="table-avatar">
-															<a href="" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%=doctor.getUser_avatar() %>" alt="User Image"></a>
-															<a href="">Dr. <%=doctor.getUser_fullname() %></a>
+															
+															<a href="#"><%=speciality.getSp_name() %></a>
 														</h2>
-													</td>
-													<td><%=sp.getDoctorSp(doctor.getUser_parent_id())%></td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="<%=patient.getUser_avatar() %>" alt="User Image"></a>
-															<a href=""><%=patient.getUser_fullname() %> </a>
-														</h2>
-													</td>
-													<td><%=app.getApp_date() %><span class="text-primary d-block"><%=app.getApp_time() %></span></td>
-													<td>
-														<div class="status-toggle">
-															<input type="checkbox" id="status_1" class="check" checked>
-															<label for="status_1" class="checktoggle">checkbox</label>
-														</div>
 													</td>
 													<td class="text-right">
-														$2003.30
+														<div class="actions">
+															<a class="btn btn-sm bg-success-light btn-edit-speciality"
+															   data-toggle="modal"
+															   data-id="<%=speciality.getSp_id()%>"
+															   data-name="<%=speciality.getSp_name()%>"
+															   data-description="<%=speciality.getSp_description()%>"
+															   href="#edit_specialities_details">
+															   <i class="fe fe-pencil"></i> Sửa
+															</a>
+															<a  data-toggle="modal" href="#delete_modal" data-id="<%=speciality.getSp_id()%>" class="btn btn-sm bg-danger-light btn-delete-speciality">
+																<i class="fe fe-trash"></i> Xoá
+															</a>
+														</div>
 													</td>
 												</tr>
-												<%} %>
+												<%
+												}
+												%>											
 											</tbody>
 										</table>
 									</div>

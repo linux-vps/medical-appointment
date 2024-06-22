@@ -75,7 +75,7 @@
     <servlet-name>DoctorDashboard</servlet-name>
     <url-pattern>/DoctorDashboard</url-pattern>
   </servlet-mapping>
-  <servlet>
+<servlet>
     <description></description>
     <display-name>DoctorProfile</display-name>
     <servlet-name>DoctorProfile</servlet-name>
