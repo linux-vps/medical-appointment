@@ -3,6 +3,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Collections"%>
 <%@page import="HealthCare.objects.AppointmentObject"%>
+<%@page import="HealthCare.objects.*"%>
 <%@page import="HealthCare.process.Speciality"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
@@ -41,6 +42,10 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+   
+</head>
+<body>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -50,7 +55,7 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
+   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -322,15 +327,6 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
 
     <section class="section dashboard">
       <div class="row">
@@ -476,6 +472,12 @@
                     });
                   </script>
                   <!-- End Line Chart -->
+              
+
+    <div id="morrisBarSpecialty" style="height: 250px;"></div>
+    <button onclick="sortSpecialty()">Sort by Number of Doctors</button>
+
+                  
                   							<!-- Sales Chart -->
 							<div class="card card-chart">
 								<div class="card-header">
@@ -497,7 +499,7 @@
 								</div>
 							</div>
 							<!-- /Area Chart -->
-
+<div id="bar-chart" style="height: 250px;"></div>
                 </div>
 
               </div>
@@ -685,6 +687,9 @@
 		<script src="assets/js/chart.morris.js"></script>
   
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   
@@ -753,34 +758,43 @@
 		    }
 		}
 		</script>
-		
-		<!-- Area chart -->
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script>
-        <!-- Set data for line chart -->
-			var labelChart = []
-			var dataChart = []
-	        <%
-	        ArrayList<String> month = new ArrayList<String>();
-	        ArrayList<Integer> total = new ArrayList<Integer>();
-	        if (a.countAppPerMonth(month, total)) {
-	            for (int i = 0; i < month.size(); i++) {%>
-	            var mValue = '<%=month.get(i)%>';
-	            var tValue = <%= total.get(i)%>;
-	            labelChart.push(mValue);
-	            dataChart.push(tValue);
-	        <%}}%>
-	     // Data for the area chart
-        var data = {
-            labels: labelChart,
-            datasets: [{
-                label: 'Total appointment',
-                data: dataChart,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)', // Area color
-                borderColor: 'rgba(75, 192, 192, 1)', // Border color
-                borderWidth: 1
-            }]
-        };
+		<!-- Embed the Morris Bar Chart -->
+
+
+<%
+    Speciality sp = new Speciality();
+    ArrayList<SpecialityObject> specialties = sp.getAllSpecialties();
+%>
+
+<script>
+    $(document).ready(function() {
+        var data = [
+            <% 
+                for (SpecialityObject specialty : specialties) {
+                    int doctorCount = sp.getDoctorCountBySpecialty(specialty.getSp_id());
+                    %>
+                    { y: '<%= specialty.getSp_name() %>', a: <%= doctorCount %> },
+                    <% 
+                }
+            %>
+        ];
+
+        new Morris.Bar({
+            element: 'bar-chart',
+            data: data,
+            xkey: 'y',
+            ykeys: ['a'],
+            labels: ['Number of Doctors'],
+            barColors: ['#1b5a90'],
+            gridTextSize: 10,
+            hideHover: 'auto',
+            resize: true,
+            redraw: true
+        });
+    });
+</script>
+
+
 		<!-- Area chart -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script>
