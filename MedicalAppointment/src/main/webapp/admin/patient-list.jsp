@@ -600,7 +600,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
 	<div class="modal-dialog modal-dialog-centered" role="document" >
 		<div class="modal-content">
-			<form action="../adminDeletePatient" method="post">
+			<form action="../adminPatientDelete" method="post">
 			<div class="modal-body">
 				<div class="form-content p-2">
 					<h4 class="modal-title">Xoá người dùng</h4>
