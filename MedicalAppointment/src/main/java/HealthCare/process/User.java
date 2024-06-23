@@ -1,8 +1,11 @@
 package HealthCare.process;
 
 import java.util.*;
-
+import java.util.Date;
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import HealthCare.ConnectionPool;
 import HealthCare.ConnectionPoolImpl;
@@ -491,36 +494,43 @@ public class User {
 	    return user;
 	}
 	// Đăng ký tài khoản
-	public boolean registerUser(String username, String password, String email) {
-	    StringBuilder sql = new StringBuilder();
-	    sql.append("INSERT INTO tbluser(");
-	    sql.append("user_name, user_password, user_email)");
-	    sql.append("VALUES(?,?,?)");
+		public boolean registerUser(String username, String password, String email) {
+		    StringBuilder sql = new StringBuilder();
+		    sql.append("INSERT INTO tbluser(");
+		    sql.append("user_name, user_password, user_email, user_created_date, user_roles)");
+		    sql.append("VALUES(?,?,?,?,?)");
 
-	    try {
-	        PreparedStatement pre = this.con.prepareStatement(sql.toString());
-	        pre.setString(1, username);
-	        pre.setString(2, password);
-	        pre.setString(3, email);
+		    try {
+		        PreparedStatement pre = this.con.prepareStatement(sql.toString());
+		        pre.setString(1, username);
+		        pre.setString(2, password);
+		        pre.setString(3, email);
+		        // Thời gian hiện tại của máy chủ
+		        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+		        pre.setTimestamp(4, currentTime); // user_created_date
+		        pre.setString(5, "p");
+		        
+		        
 
-	        int result = pre.executeUpdate();
-	        if (result == 0) {
-	            this.con.rollback();
-	            return false;
-	        }
+		        int result = pre.executeUpdate();
+		        if (result == 0) {
+		            this.con.rollback();
+		            return false;
+		        }
 
-	        this.con.commit();
-	        return true;
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        try {
-	            this.con.rollback();
-	        } catch (SQLException e1) {
-	            e1.printStackTrace();
-	        }
-	    }
-	    return false;
-	}
+		        this.con.commit();
+		        return true;
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		        try {
+		            this.con.rollback();
+		        } catch (SQLException e1) {
+		            e1.printStackTrace();
+		        }
+		    }
+		    return false;
+		}
+
     // Kiểm tra xem username đã tồn tại chưa
     public boolean checkUsernameExists(String username) {
         String sql = "SELECT COUNT(*) FROM tbluser WHERE user_name = ?";
@@ -603,6 +613,94 @@ public class User {
         
         return items;
     }
+ // Phương thức lấy dữ liệu cho biểu đồ từ CSDL, trang index.jsp bên admin
+    public ArrayList<Integer> getUserAgeGroupData() {
+        ArrayList<Integer> data = new ArrayList<>();
 
+  
+        int infantData = 0;
+        int childData = 0;
+        int teenagerData = 0;
+        int adultData = 0;
+        int middleAgedData = 0;
+        int oldsterData = 0;
+        int elderlyData = 0;
+
+        String sql = "SELECT user_birthday FROM tbluser WHERE user_roles = 'p'";
+        
+        try {
+            PreparedStatement pre = this.con.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+
+            while (rs.next()) {
+                String birthday = rs.getString("user_birthday");
+
+                int age = calculateAgeFromBirthday(birthday);
+                if (age >= 0 && age <= 1) {
+                    infantData++; 
+                } else if (age >= 2 && age <= 12) {
+                    childData++; 
+                } else if (age >= 13 && age <= 17) {
+                    teenagerData++; 
+                } else if (age >= 18 && age <= 34) {
+                    adultData++; 
+                } else if (age >= 35 && age <= 64) {
+                    middleAgedData++;
+                } else if (age >= 65 && age <= 84) {
+                    oldsterData++; 
+                } else {
+                    elderlyData++; 
+                }
+            }
+
+            data.add(infantData);
+            data.add(childData);
+            data.add(teenagerData);
+            data.add(adultData);
+            data.add(middleAgedData);
+            data.add(oldsterData);
+            data.add(elderlyData);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    private int calculateAgeFromBirthday(String birthday) {
+        if (birthday == null || birthday.isEmpty()) {
+            return -1; 
+        }
+      
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+         
+        	Date birthDate = dateFormat.parse(birthday);       
+            Date currentDate = new Date();
+
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(birthDate);
+            int birthYear = cal.get(Calendar.YEAR);
+            int birthMonth = cal.get(Calendar.MONTH);
+            int birthDay = cal.get(Calendar.DAY_OF_MONTH);
+
+            cal.setTime(currentDate);
+            int currentYear = cal.get(Calendar.YEAR);
+            int currentMonth = cal.get(Calendar.MONTH);
+            int currentDay = cal.get(Calendar.DAY_OF_MONTH);
+
+            int age = currentYear - birthYear;
+            if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
+                age--;
+            }
+
+            return age;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0; 
+        }
+    }
 }
 
