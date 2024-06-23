@@ -1,9 +1,15 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="HealthCare.objects.UserObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="jakarta.servlet.http.HttpSession"%>
-<%@ page import="HealthCare.objects.SpecialityObject"%>
-<%@ page import="HealthCare.process.Speciality"%>
+<%@ page import="HealthCare.objects.AppointmentObject"%>
+<%@ page import="HealthCare.process.Appointment"%>
 <%@ page import="java.util.List" %>
+
+<%@page import="HealthCare.process.Speciality"%>
+<%@page import="HealthCare.process.User"%>
+<%@page import="HealthCare.objects.UserObject"%>
+
 
 <!-- Đã tắt gg font, link ảnh đại diện user avatar, script liên quan đến firebase -->
 
@@ -105,6 +111,9 @@
           .selected-option span {
               margin-right: 5px;
               cursor: pointer;
+          }
+          h2{
+          font-size: 1rem;
           }
   </style>
 </head>
@@ -370,25 +379,25 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-	      <li class="nav-item">
-        <a class="nav-link " href="appointment-list.jsp">
+	  <li class="nav-item">
+        <a class="nav-link  " href="appointment-list.jsp">
           <i class="bx bx-list-check"></i>
           <span>Appointments</span>
         </a>
       </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="speciality-list.jsp">
           <i class="ri-todo-line"></i>
           <span>Specialities</span>
         </a>
       </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="doctor-list.jsp">
           <i class="ri-user-2-line"></i>
           <span>Doctors</span>
         </a>
       </li><!-- End Dashboard Nav -->
-                  <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="patient-list.jsp">
           <i class="ri-user-heart-line"></i>
           <span>Patients</span>
@@ -421,49 +430,53 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
+									
 										<table class="datatable table table-hover table-center mb-0">
-											<thead>
+										<thead>
 												<tr>
-													<th data-field="column1" class="sorting">#</th>
-									                <th data-field="column2" class="sorting">Specialities</th>
-									                <th data-field="column3" class="text-right sorting">Actions</th>
+													<th>Doctor Name</th>
+													<th>Speciality</th>
+													<th>Patient Name</th>
+													<th>Apointment Time</th>
+													<th>Status</th>
+													<th class="text-right">Amount</th>
 												</tr>
 											</thead>
 											<tbody>
-												<%
-												Speciality sp = new Speciality();
-												SpecialityObject searchSP = new SpecialityObject();
-												List<SpecialityObject> splist = sp.getSpecialityObjects(searchSP, 55);
-												for (SpecialityObject speciality : splist) {
+												<% 	Appointment a = new Appointment();
+													Speciality sp = new Speciality();
+													User u = new User();
+													ArrayList<AppointmentObject> apps = a.getAppointmentFromNow(null, 30);
+													for (AppointmentObject app : apps) {
+														UserObject patient = u.getUserById(app.getUser_id());
+														UserObject doctor = u.getUserById(app.getDoctor_id());
 												%>
 												<tr>
-													<td><%=speciality.getSp_id() %></td>
-													
 													<td>
 														<h2 class="table-avatar">
-															
-															<a href="#"><%=speciality.getSp_name() %></a>
+															<a href="" class="avatar avatar-sm mr-2"><img style="width: 10%;" class="avatar-img rounded-circle" src="<%=doctor.getUser_avatar() %>" alt="User Image"></a>
+															<a href="">Dr. <%=doctor.getUser_fullname() %></a>
 														</h2>
 													</td>
-													<td class="text-right">
-														<div class="actions">
-															<a class="btn btn-sm bg-success-light btn-edit-speciality"
-															   data-toggle="modal"
-															   data-id="<%=speciality.getSp_id()%>"
-															   data-name="<%=speciality.getSp_name()%>"
-															   data-description="<%=speciality.getSp_description()%>"
-															   href="#edit_specialities_details">
-															   <i class="fe fe-pencil"></i> Sửa
-															</a>
-															<a  data-toggle="modal" href="#delete_modal" data-id="<%=speciality.getSp_id()%>" class="btn btn-sm bg-danger-light btn-delete-speciality">
-																<i class="fe fe-trash"></i> Xoá
-															</a>
+													<td><%=sp.getDoctorSp(doctor.getUser_parent_id())%></td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="" class="avatar avatar-sm mr-2"><img   class="avatar-img rounded-circle" style="width: 10%;" src="<%=patient.getUser_avatar() %>" alt="User Image"></a>
+															<a href=""><%=patient.getUser_fullname() %> </a>
+														</h2>
+													</td>
+													<td><%=app.getApp_date() %><span class="text-primary d-block"><%=app.getApp_time() %></span></td>
+													<td>
+														<div class="status-toggle">
+															<input type="checkbox" id="status_1" class="check" checked>
+															<label for="status_1" class="checktoggle">checkbox</label>
 														</div>
 													</td>
+													<td class="text-right">
+														$2003.30
+													</td>
 												</tr>
-												<%
-												}
-												%>											
+												<%} %>
 											</tbody>
 										</table>
 									</div>
