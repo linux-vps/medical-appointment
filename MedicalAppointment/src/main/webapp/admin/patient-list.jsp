@@ -427,13 +427,14 @@
 													<th>Address</th>
 													<th>Phone</th>
 													<th>Last Visit</th>
+													<th></th>
 												</tr>
 											</thead>
 											<tbody>
 												<%
 												User patient = new User();
 												UserObject patientObject = new UserObject();
-												List<UserObject> patientList = patient.getUsersByRole("d");
+												List<UserObject> patientList = patient.getUsersByRole("p");
 												for (UserObject p : patientList) {
 												%>
 												<tr>
@@ -447,6 +448,13 @@
 													<td><%=p.getUser_address() %></td>
 													<td><%=p.getUser_phone() %></td>
 													<td><%=p.getUser_last_logined() %></td>
+														<td class="text-right">
+														<div class="actions">											
+															<a  data-toggle="modal" href="#delete_modal" data-id="<%=p.getUser_id()%>" class="btn btn-sm bg-danger-light btn-delete-speciality">
+																<i class="fe fe-trash"></i> Xoá
+															</a>
+														</div>
+													</td>
 												</tr>
 												<%
 												} 
@@ -457,10 +465,7 @@
 								</div>
 							</div>
 							<!-- /Recent Orders -->
-
         </div>
-
-
       </div>
     </section>
 
@@ -482,6 +487,35 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- MODAL -->
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Lắng nghe sự kiện click trên phần tử cha (ở đây là body)
+    document.body.addEventListener('click', function (event) {
+        var target = event.target;
+
+        // Kiểm tra xem phần tử được click có class là btn-edit-speciality hay không
+        if (target.classList.contains('btn-edit-speciality')) {
+            // Lấy thông tin từ phần tử được click
+            var spId = target.getAttribute('data-id');
+            var spName = target.getAttribute('data-name');
+            var spDescription = target.getAttribute('data-description');
+
+            // Điền thông tin vào modal sửa
+            document.getElementById('spIdEdit').value = spId;
+            document.getElementById('spNameEdit').value = spName;
+            document.getElementById('spDesEdit').value = spDescription;
+
+            // Mở modal sửa
+            $('#edit_specialities_details').modal('show');
+        } else if (target.classList.contains('btn-delete-speciality')) {
+            // Xử lý sự kiện xoá tương tự như trên
+            var spIdDel = target.getAttribute('data-id');
+            document.getElementById('spIdDel').value = spIdDel;
+            $('#delete_modal').modal('show');
+        }     
+    });
+});
+</script>
   <!-- Add Modal -->
   <div class="modal fade" id="Add_Class" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -562,7 +596,25 @@
     </div>
   </div>
   <!-- /ADD Modal -->
-  <!-- Edit Details Modal -->
+<!-- Delete Modal -->
+<div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+	<div class="modal-dialog modal-dialog-centered" role="document" >
+		<div class="modal-content">
+			<form action="../adminDeletePatient" method="post">
+			<div class="modal-body">
+				<div class="form-content p-2">
+					<h4 class="modal-title">Xoá người dùng</h4>
+					<p class="mb-4">Bạn có chắc chắn muốn xoá?</p>
+					<input type="hidden" name="sp_id_del" id="spIdDel">
+					<button type="submit" class="btn btn-primary">Xoá</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- /Delete Modal -->
 
   <!-- END MODAL -->
 
