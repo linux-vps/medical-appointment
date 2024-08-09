@@ -52,14 +52,14 @@
 ### <a name="_z3panr8pcsih"></a><a name="_toc155293397"></a>**Đăng nhập vào chương trình** 
 <a name="_obmvmzl4mq0l"></a>	Sau khi truy cập vào trương trình từ địa chỉ local host, trên giao diện màn hình chính có 2 trường Tài khoản và Mật khẩu, người dùng sử dụng tài khoản và mật khẩu có trong cơ sở dữ liệu từ trước để đăng nhập vào hệ thống. Nếu muốn tạo một tài khoản mới, có thể vào trang đăng ký để tạo mới.
 
-##### <a name="_toc155293311"></a>*Màn hình đăng nhập*
+##### <a name="_toc155293311"><img src="pics/login.png" width="75%" /></a>*Màn hình đăng nhập*
 <a name="_84g7g43z7sv4"></a>	Nhập tài khoản vào trường tài khoản. Nhập mật khẩu vào trường mật khẩu. Nhấn đăng nhập. Hệ thống sẽ kiểm tra tính chính xác của thông tin tài khoản mật khẩu. Nếu đúng, với tài khoản bệnh nhân, hệ thống sẽ điều hướng đến trang chủ của bệnh nhân, với tài khoản bác sĩ, hệ thống sẽ điều hướng đến trang dashboard của bác sĩ và nếu đúng với tài khoản quản trị, hệ thống sẽ điều hướng đến trang quản trị.
 
 ##### <a name="_j79g2bw5gnu"></a><a name="_toc155293312"></a>*Màn hình Dashboard của bệnh nhân*
 
-##### <a name="_toc155293313"></a>*Màn hình Dashboard của bác sĩ*
+##### <a name="_toc155293313"><img src="pics/doctor.png" width="75%" /></a>*Màn hình Dashboard của bác sĩ*
 
-##### <a name="_toc155293314"></a>*Màn hình Dashboard của admin*
+##### <a name="_toc155293314"><img src="pics/admin.png" width="75%" /></a>*Màn hình Dashboard của admin*
 ### <a name="_1uow20hk05s9"></a><a name="_toc155293398"></a>**Các chức năng xử lý nghiệp vụ**
 #### <a name="_iy1btsvggkwo"></a>	**Đặt lịch khám bệnh**
 Sau khi tìm kiếm bác sĩ, người dùng được chuyển đến trang chọn lịch để chọn thời gian thăm khám.
