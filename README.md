@@ -1,5 +1,5 @@
-# 20231IT6020003_HealthCareSystem
-Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Serverlet, javascript và bootstrap
+# WEBSITE ĐẶT LỊCH KHÁM BỆNH MEDICAL APPOINTMENT
+ Kỹ thuật liên quan: JDBC, JSP Serverlet, javascript và bootstrap, Mysql, Ubuntu deploy.
 # <a name="_toc155293392"></a>**TÀI LIỆU HƯỚNG DẪN SỬ DỤNG**
 ## <a name="_3s6kh4uclvtw"></a><a name="_toc155293393"></a>**Hướng dẫn cài đặt chương trình** 
 ### <a name="_toc155293394"></a>**Cấu hình, cài đặt môi trường phát triển**
@@ -23,13 +23,13 @@ Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Se
 
 ##### <a name="_toc155293307"></a>*Hướng dẫn cấu hình thư viện JDBC*
 ### <a name="_toc155293395"></a>**Cài đặt chương trình**
-- <a name="_ag3mrokjqbx"></a><a name="_cekbljpum1r5"></a><a name="_9nz49srhfsr1"></a>Tải mã nguồn về máy từ github: <https://github.com/dmhaui/20231IT6020003_HealthCareSystem.git>
+- <a name="_ag3mrokjqbx"></a><a name="_cekbljpum1r5"></a><a name="_9nz49srhfsr1"></a>Tải mã nguồn về máy từ github: <https://github.com/linux-vps/medical-appointment.git>
 
 <a name="_ixoc3in447ea"></a>\*Sau khi tải thành công các công cụ, trình quản lý và mã nguồn, thực hiện chạy chương trình.
 
 - Tạo cơ sở dữ liệu MySQL:
-  - Trong MySQL workbench, tạo Schemas tên 20231IT6020003\_healthcare\_system, chọn và chạy mã sql.
-  - Tạo user có tên “it6020003\_minhdn” và password “123456”.
+  - Trong MySQL workbench, tạo Schemas tên data\_healthcare, chọn và chạy mã sql.
+  - Tạo user có tên “medical” và password “123456”.
   - Có thể tạo với tên khác nhau nhưng cần chỉnh sửa mã nguồn để hệ thống có thể khởi động.
 
 - Chạy chương trình trên Eclipse sau khi cài đặt, cấu hình môi trường:
