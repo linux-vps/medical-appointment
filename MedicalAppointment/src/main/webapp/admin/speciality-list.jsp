@@ -282,59 +282,58 @@ $(document).ready(function() {
 
         </li><!-- End Messages Nav -->
 
-        <li class="nav-item dropdown pe-3">
+       <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" id="userAvatar">
-            <span id="userName1" class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+<img src="assets/img/profile-img.jpg" alt="" class="rounded-circle" id="userAvatar">
+<span id="userName1" class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6 id="userName">Kevin Anderson</h6>
-              <span id="userEmail">Teacher</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+<li class="dropdown-header">
+<h6 id="userName">Admin</h6>
+<span id="userEmail">Admin</span>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-person"></i>
+<span>My Profile</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-gear"></i>
+<span>Account Settings</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+<i class="bi bi-question-circle"></i>
+<span>Need Help?</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" id="sign-out-btn" onclick="signOutUser()" href="../sign.html?autolog=false">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-
+<li>
+<a class="dropdown-item d-flex align-items-center" id="sign-out-btn" onclick="signOutUser()" href="../sign.jsp?autolog=false">
+<i class="bi bi-box-arrow-right"></i>
+<span>Sign Out</span>
+</a>
+</li>
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -490,8 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var spIdDel = target.getAttribute('data-id');
             document.getElementById('spIdDel').value = spIdDel;
             $('#delete_modal').modal('show');
-        }
-        
+        }     
     });
 });
 </script>

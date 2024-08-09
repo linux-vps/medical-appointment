@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   <display-name>20231HealthCare_HealthCareSystem</display-name>
   <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
     <welcome-file>sign.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
@@ -75,7 +75,7 @@
     <servlet-name>DoctorDashboard</servlet-name>
     <url-pattern>/DoctorDashboard</url-pattern>
   </servlet-mapping>
-<servlet>
+  <servlet>
     <description></description>
     <display-name>DoctorProfile</display-name>
     <servlet-name>DoctorProfile</servlet-name>
@@ -134,5 +134,45 @@
   <servlet-mapping>
     <servlet-name>adminSpecialityAdd</servlet-name>
     <url-pattern>/adminSpecialityAdd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>userServlet</display-name>
+    <servlet-name>userServlet</servlet-name>
+    <servlet-class>HealthCare.servlet.userServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userServlet</servlet-name>
+    <url-pattern>/userServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>adminDeletePatient</display-name>
+    <servlet-name>adminDeletePatient</servlet-name>
+    <servlet-class>HealthCare.servlet.adminDeletePatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminDeletePatient</servlet-name>
+    <url-pattern>/adminDeletePatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>adminPatientEdit</display-name>
+    <servlet-name>adminPatientEdit</servlet-name>
+    <servlet-class>HealthCare.servlet.adminPatientEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminPatientEdit</servlet-name>
+    <url-pattern>/adminPatientEdit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>adminPatientDelete</display-name>
+    <servlet-name>adminPatientDelete</servlet-name>
+    <servlet-class>HealthCare.servlet.adminPatientDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminPatientDelete</servlet-name>
+    <url-pattern>/adminPatientDelete</url-pattern>
   </servlet-mapping>
 </web-app>

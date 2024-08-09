@@ -48,7 +48,7 @@
     <div id="container" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html"><img src="assets/img/logo.png" width="80px" height="70px"></a></h1>
+      <h1 class="logo me-auto"><a href="index.jsp"><img src="assets/img/logo.png" width="80px" height="70px"></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -61,11 +61,11 @@
             
             <ul>
               <li><a href="doctor-profile.html">Hồ sơ bác sĩ</a></li>
-              <li><a href="patient-dashboard.html">Bảng điều khiển của bệnh nhân</a></li>
-              <li><a href="favourites.html">Yêu thích</a></li>
-              <li><a href="chat.html">Trò chuyện</a></li>
-              <li><a href="profile-settings.html">Cài đặt hồ sơ</a></li>
-              <li><a href="change-password.html">Đổi mật khẩu</a></li>            </ul>
+              <li><a href="patient-dashboard.jsp">Bảng điều khiển của bệnh nhân</a></li>
+              <li><a href="#">Yêu thích</a></li>
+              <li><a href="#">Trò chuyện</a></li>
+              <li><a href="#">Cài đặt hồ sơ</a></li>
+              <li><a href="#">Đổi mật khẩu</a></li>            </ul>
           </li>
           <li><a class="nav-link scrollto " href="#Infrastructure">Cơ sở vật chất</a></li>
 
@@ -238,7 +238,7 @@
 
 
 
-        <section id="doctor" class="doctor">
+                <section id="doctor" class="doctor">
             <div class="container">
       
               <div class="section-title">
@@ -273,7 +273,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.png">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -284,7 +284,7 @@
                                         <a href="doctor-profile.html">Bs.Phạm Đức Huấn</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa tiết niệu</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -295,13 +295,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -330,7 +330,7 @@
                                         <a href="doctor-profile.html">Bs.Võ Thành Nhân</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa tiết niệu</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -341,13 +341,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -361,6 +361,99 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-04.jpg">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Bs.Nguyễn Tấn Cường</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Chuyên khoa tiết niệu</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-03.png">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Bs.Nguyễn Đình Tời</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Chuyên khoa tiết niệu</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+
                             
                         </div>
                     </div>
@@ -369,7 +462,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-05.jpg">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -377,10 +470,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Bs.Nguyễn Văn Đĩnh</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa thần kinh</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -391,13 +484,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -415,7 +508,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-06.png">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -423,10 +516,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Huỳnh Thoại Loan</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa thân kinh</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -437,13 +530,58 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-07.jpg">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Nguyễn Viết Nhân</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Chuyên khoa thân kinh</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -458,6 +596,7 @@
                                 </div>
                             </div>
                             
+
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-3">
@@ -466,7 +605,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-08.jpg">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -474,10 +613,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Võ Thành Nhân</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa chỉnh hình</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -488,13 +627,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -512,7 +651,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-09.png">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -520,10 +659,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Nguyễn Ngọc Chiến</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS -Chuyên khoa chỉnh hình</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -534,13 +673,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -554,7 +693,52 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-10.jpg">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Phạm Nhật An</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS -Chuyên khoa chỉnh hình</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                       </div>
                     </div>
@@ -564,7 +748,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.png">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -572,10 +756,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Bs.Phạm Đức Huấn</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa tim mạch</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -586,13 +770,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -610,7 +794,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-02.jpg">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -618,10 +802,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Bs.Võ Thành Nhân</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Chuyên khoa tim mạch</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -632,13 +816,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -652,6 +836,99 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-04.jpg">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Bs.Nguyễn Tấn Cường</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Chuyên khoa tim mạch</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-03.png">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Bs.Nguyễn Đình Tời</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Chuyên khoa tim mạch</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+
                             
                         </div>
                       </div>
@@ -661,7 +938,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-05.jpg">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -669,10 +946,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Bs.Nguyễn Văn Đĩnh</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS -  Nha khoa</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -683,13 +960,13 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -707,7 +984,7 @@
                             <div class="profile-widget" style="width: 100%;">
                                 <div class="doc-img">
                                     <a href="doctor-profile.html">
-                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-01.jpg">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-06.png">
                                     </a>
                                     <a href="javascript:void(0)" class="fav-btn">
                                         <i class="far fa-bookmark"></i>
@@ -715,10 +992,10 @@
                                 </div>
                                 <div class="pro-content">
                                     <h3 class="title">
-                                        <a href="doctor-profile.html">Ruby Perrin</a>
+                                        <a href="doctor-profile.html">Huỳnh Thoại Loan</a>
                                         <i class="fas fa-check-circle verified"></i>
                                     </h3>
-                                    <p class="speciality">MDS - Chuyên khoa Nha khoa và Nha trồng răng, BDS</p>
+                                    <p class="speciality">MDS - Nha khoa</p>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
                                         <i class="fas fa-star filled"></i>
@@ -729,13 +1006,58 @@
                                     </div>
                                     <ul class="available-info">
                                         <li>
-                                            <i class="fas fa-map-marker-alt"></i> Florida, USA
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
                                         </li>
                                         <li>
                                             <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
                                         </li>
                                         <li>
-                                            <i class="far fa-money-bill-alt"></i> $300 - $1000
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
+                                            <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+                                        </li>
+                                    </ul>
+                                    <div class="row row-sm">
+                                        <div class="col-6">
+                                            <a href="doctor-profile.html" class="btn view-btn">Xem Hồ sơ</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="booking.html" class="btn book-btn">Đặt Ngay</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="profile-widget" style="width: 100%;">
+                                <div class="doc-img">
+                                    <a href="doctor-profile.html">
+                                        <img class="img-fluid" alt="Hình ảnh Người dùng" src="assets/img/doctors/doctor-07.jpg">
+                                    </a>
+                                    <a href="javascript:void(0)" class="fav-btn">
+                                        <i class="far fa-bookmark"></i>
+                                    </a>
+                                </div>
+                                <div class="pro-content">
+                                    <h3 class="title">
+                                        <a href="doctor-profile.html">Nguyễn Viết Nhân</a>
+                                        <i class="fas fa-check-circle verified"></i>
+                                    </h3>
+                                    <p class="speciality">MDS - Nha khoa</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <span class="d-inline-block average-rating">(17)</span>
+                                    </div>
+                                    <ul class="available-info">
+                                        <li>
+                                            <i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam
+                                        </li>
+                                        <li>
+                                            <i class="far fa-clock"></i> Có mặt vào Thứ Sáu, 22 Tháng Ba
+                                        </li>
+                                        <li>
+                                            <i class="far fa-money-bill-alt"></i> 300.000-500.000(VND)
                                             <i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
                                         </li>
                                     </ul>
@@ -750,6 +1072,7 @@
                                 </div>
                             </div>
                             
+
                         </div>
                       </div>
                     </div>
@@ -759,6 +1082,7 @@
       
             </div>
           </section><!-- End Departments Section -->
+
 		<!-- Các Tính Năng Có Sẵn -->
         <section id="Infrastructure" class="Infrastructure" id="Infrastructure">
     <div class="container" data-aos="fade-up""> 

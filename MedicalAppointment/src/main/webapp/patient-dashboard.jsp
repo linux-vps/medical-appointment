@@ -51,7 +51,7 @@
 
 		<!-- Header -->
 		<header class="header">
-			<nav class="navbar navbar-expand-lg header-nav">
+			<nav class="navbar ">
 				<div class="navbar-header">
 					<a id="mobile_btn" href="javascript:void(0);">
 						<span class="bar-icon">
@@ -65,14 +65,9 @@
 					</a>
 				</div>
 				<div class="main-menu-wrapper">
-					<div class="menu-header">
-						<a href="index.jsp" class="menu-logo">
-							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
-						</a>
-						<a id="menu_close" class="menu-close" href="javascript:void(0);">
-							<i class="fas fa-times"></i>
-						</a>
-					</div>
+					
+
+				
 					<ul class="main-nav">
 						<li>
 							<a href="index.jsp">Trang chủ</a>
@@ -93,12 +88,6 @@
                                 <li><a href="change-password.html">Đổi mật khẩu</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="admin/index.jsp" target="_blank">Quản trị</a>
-                        </li>
-                        <li class="login-link">
-                            <a href="sign.jsp">Đăng nhập / Đăng ký</a>
-						</li>
 					</ul>
 					</div>
 					<ul class="nav header-navbar-rht">

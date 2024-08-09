@@ -31,10 +31,14 @@ public class ConnectionPoolImpl implements ConnectionPool {
 		}
 		
 		// Xác định đường dẫn 
-		this.url = "jdbc:mysql://localhost:3306/data_HealthCare";
+		this.url = "jdbc:mysql://localhost:3306/data_healthcare";
+
 		
-		// Xác định tài khoản
-		this.username = "nhom19";
+//		// Xác định tài khoản
+//		this.username = "minhtoantam";
+//		this.userpass = "123456";
+		
+		this.username = "medical";
 		this.userpass = "123456";
 		
 		// Xác định bộ nhớ

@@ -34,21 +34,7 @@ public class LoginControl extends HttpServlet {
 	        session.setAttribute("loggedInUser", loggedInUser);
 	        session.setAttribute("loggedInUserId", loggedInUser.getUser_id());
 	        
-	        //Guild session
-//	        public class YourJavaClass {
-//
-//	            public void yourMethod(HttpServletRequest request) {
-//	                // Lấy giá trị user_id từ Session
-//	                HttpSession session = request.getSession();
-//	                UserObject loggedInUser = (UserObject) session.getAttribute("loggedInUser");
-//
-//	                if (loggedInUser != null) {
-//	                    // Có thể sử dụng loggedInUser.getUser_id() ở đây
-//	                    int userId = loggedInUser.getUser_id();
-//	                    System.out.println("User ID: " + userId);
-//	                }
-//	            }
-//	        }
+
 	        String role = loggedInUser.getUser_roles();
 	        System.out.print(role);
 	        if ("p".equals(role)) {

@@ -8,7 +8,7 @@
 <!-- doccure/doctor-profile-settings.html  30 Nov 2019 04:12:14 GMT -->
 <head>
 	<meta charset="utf-8">
-	<title>Đan Phượng Hospital</title>
+	<title>Bệnh viện đa khoa Vinmec</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 	<!-- Favicons -->
@@ -51,7 +51,7 @@
 
 		<!-- Header -->
 		<header class="header">
-			<nav class="navbar navbar-expand-lg header-nav">
+			<nav class="navbar ">
 				<div class="navbar-header">
 					<a id="mobile_btn" href="javascript:void(0);">
 						<span class="bar-icon">
@@ -398,7 +398,7 @@
 								<div class="footer-contact-info">
 									<div class="footer-address">
 										<span><i class="fas fa-map-marker-alt"></i></span>
-										<p> Sở y tế Hà Nội - Bệnh viện đa khoa huyện Đan Phượng<br> Thị Trấn Phùng - Đan Phượng - Hà nội </p>
+										<p> Sở y tế Hà Nội - Bệnh viện đa khoa huyện Vinmec<br> Thị Trấn Phùng - Vinmec - Hà nội </p>
 									</div>
 									<p>
 										<i class="fas fa-phone-alt"></i>

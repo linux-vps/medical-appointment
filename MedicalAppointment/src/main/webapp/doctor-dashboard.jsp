@@ -14,7 +14,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Đan Phượng Hospital</title>
+	<title>Vinmec Hospital</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
 	<!-- Favicons -->
@@ -45,7 +45,7 @@
 
 		<!-- Header -->
 		<header class="header">
-			<nav class="navbar navbar-expand-lg header-nav">
+			<nav class="navbar ">
 				<div class="navbar-header">
 					<a id="mobile_btn" href="javascript:void(0);">
 						<span class="bar-icon">
@@ -60,13 +60,7 @@
 				</div>
 				<div class="main-menu-wrapper">
 					<div class="menu-header">
-						<a href="#" class="menu-logo">
-							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
-						</a>
-						<a id="menu_close" class="menu-close" href="javascript:void(0);">
-							<i class="fas fa-times"></i>
-						</a>
-					</div>
+				</div>
 					<ul class="main-nav">
 						<li>
 							<a href="#">Home</a>
@@ -602,7 +596,7 @@
 								<div class="footer-contact-info">
 									<div class="footer-address">
 										<span><i class="fas fa-map-marker-alt"></i></span>
-										<p> Sở y tế Hà Nội - Bệnh viện đa khoa huyện Đan Phượng<br> Thị Trấn Phùng - Đan Phượng - Hà nội </p>
+										<p> Sở y tế Hà Nội - Bệnh viện đa khoa huyện Vinmec<br> Thị Trấn Phùng - Vinmec - Hà nội </p>
 									</div>
 									<p>
 										<i class="fas fa-phone-alt"></i>

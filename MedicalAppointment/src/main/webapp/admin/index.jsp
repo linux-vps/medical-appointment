@@ -22,7 +22,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Dashboard</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,9 +30,6 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -43,8 +40,14 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <style>
+  h2{
+  font-size: 1rem;
+  }
+  </style>
    
 </head>
+
 <body>
 
   <!-- Template Main CSS File -->
@@ -54,6 +57,7 @@
 </head>
 
 <body>
+
 
    <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -223,58 +227,58 @@
 
         </li><!-- End Messages Nav -->
 
-        <li class="nav-item dropdown pe-3">
+<li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+<img src="assets/img/profile-img.jpg" alt="" class="rounded-circle" id="userAvatar">
+<span id="userName1" class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+<li class="dropdown-header">
+<h6 id="userName">Admin</h6>
+<span id="userEmail">Admin</span>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-person"></i>
+<span>My Profile</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-gear"></i>
+<span>Account Settings</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+<i class="bi bi-question-circle"></i>
+<span>Need Help?</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" id="sign-out-btn" onclick="signOutUser()" href="../sign.jsp?autolog=false">
+<i class="bi bi-box-arrow-right"></i>
+<span>Sign Out</span>
+</a>
+</li>
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -284,7 +288,7 @@
 
   </header><!-- End Header -->
 
-  <!-- ======= Sidebar ======= -->
+    <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -295,25 +299,25 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-	      <li class="nav-item">
-        <a class="nav-link collapsed" href="appointment-list.jsp">
+	  <li class="nav-item">
+        <a class="nav-link collapsed " href="appointment-list.jsp">
           <i class="bx bx-list-check"></i>
           <span>Appointments</span>
         </a>
       </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="speciality-list.jsp">
           <i class="ri-todo-line"></i>
           <span>Specialities</span>
         </a>
       </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="doctor-list.jsp">
           <i class="ri-user-2-line"></i>
           <span>Doctors</span>
         </a>
       </li><!-- End Dashboard Nav -->
-                  <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="patient-list.jsp">
           <i class="ri-user-heart-line"></i>
           <span>Patients</span>
@@ -345,6 +349,7 @@
 						
 						Appointment a = new Appointment();
 						int totalApp = a.countAppointments();
+						
 					%>
                 <div class="card-body">
                   <h5 class="card-title">Doctors</h5>
@@ -399,79 +404,70 @@
             <!-- Reports -->
             <div class="col-12">
               <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Age</h5>
 
                   <!-- Line Chart -->
                   <div id="reportsChart"></div>
-
+<%
+	ArrayList<Integer> ageGroupData = u.getUserAgeGroupData();
+%>
                   <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
+    document.addEventListener("DOMContentLoaded", () => {
+
+        var colors = ['#4154f1', '#2eca6a', '#ff771d', '#e91e63', '#00bcd4', '#9c27b0', '#ffc107', '#8bc34a', '#ff5722', '#607d8b', '#795548', '#673ab7'];
+
+        
+        new ApexCharts(document.querySelector("#reportsChart"), {
+        	series: [{
+                data: [<%= ageGroupData.get(0) %>, <%= ageGroupData.get(1) %>, <%= ageGroupData.get(2) %>, 
+                    <%= ageGroupData.get(3) %>, <%= ageGroupData.get(4) %>, <%= ageGroupData.get(5) %>, 
+                    <%= ageGroupData.get(6) %>]
+         }],
+                chart: {
+                height: 350,
+                type: 'bar',
+                events: {
+                  click: function(chart, w, e) {
+                    // console.log(chart, w, e)
+                  }
+                }
+              },
+              colors: colors,
+              plotOptions: {
+                bar: {
+                  columnWidth: '45%',
+                  distributed: true,
+                }
+              },
+              dataLabels: {
+                enabled: false
+              },
+              legend: {
+                show: false
+              },
+              xaxis: {
+                categories: [
+                  ['0 - 1', 'Infant'],
+                  ['2 - 12', 'Child'],
+                  ['3 - 17', 'Teenager'],
+                  ['18 -  34', 'Adult'],
+                  ['35 - 64', 'Middle-aged'],
+                  ['65 - 84', 'Oldster'],
+                  ['Over 85', 'Elderly'],
+                ],
+                labels: {
+                  style: {
+                    colors: colors,
+                    fontSize: '12px'
+                  }
+                }
+              }
+        }).render();
+    });      
+</script>
+<!-- End Line Chart -->
+
               
 
     <div id="morrisBarSpecialty" style="height: 250px;"></div>
@@ -793,8 +789,6 @@
         });
     });
 </script>
-
-
 		<!-- Area chart -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script>

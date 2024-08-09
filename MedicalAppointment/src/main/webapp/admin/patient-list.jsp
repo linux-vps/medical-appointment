@@ -278,74 +278,56 @@
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" id="userAvatar">
-            <span id="userName1" class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-          </a><!-- End Profile Iamge Icon -->
+<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+<img src="assets/img/profile-img.jpg" alt="" class="rounded-circle" id="userAvatar">
+<span id="userName1" class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+</a><!-- End Profile Iamge Icon -->
 
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li class="dropdown-header">
-              <h6 id="userName">Kevin Anderson</h6>
-              <span id="userEmail">Teacher</span>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+<li class="dropdown-header">
+<h6 id="userName">Admin</h6>
+<span id="userEmail">Admin</span>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-person"></i>
+<span>My Profile</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+<i class="bi bi-gear"></i>
+<span>Account Settings</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+<li>
+<a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+<i class="bi bi-question-circle"></i>
+<span>Need Help?</span>
+</a>
+</li>
+<li>
+<hr class="dropdown-divider">
+</li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" id="sign-out-btn" onclick="signOutUser()" href="../sign.html?autolog=false">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
-            </li>
-          <!--  <script>
-              // Lấy đối tượng user từ sessionStorage và chuyển đổi thành đối tượng JavaScript
-              const loggedInUser = JSON.parse(sessionStorage.getItem('QLHPfouhuewuinjkjh'));
-        
-              const userName = loggedInUser.displayName;
-              const userEmail = loggedInUser.email;
-              const userAvatar = loggedInUser.photoURL;
-        
-              // Hiển thị thông tin người dùng trong user menu
-              document.getElementById('userName').textContent = userName;
-              document.getElementById('userName1').textContent = userName;
-              document.getElementById('userEmail').innerText = userEmail;
-        
-              // Nếu có ảnh đại diện của người dùng, hiển thị nó
-              if (loggedInUser.photoURL) {
-                document.getElementById('userAvatar').src = userAvatar;
-              }
-            </script> -->
+<li>
+<a class="dropdown-item d-flex align-items-center" id="sign-out-btn" onclick="signOutUser()" href="../sign.jsp?autolog=false">
+<i class="bi bi-box-arrow-right"></i>
+<span>Sign Out</span>
+</a>
+</li>
 
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
@@ -368,7 +350,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
 	  <li class="nav-item">
-        <a class="nav-link  " href="appointment-list.jsp">
+        <a class="nav-link collapsed " href="appointment-list.jsp">
           <i class="bx bx-list-check"></i>
           <span>Appointments</span>
         </a>
@@ -386,7 +368,7 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="patient-list.jsp">
+        <a class="nav-link " href="patient-list.jsp">
           <i class="ri-user-heart-line"></i>
           <span>Patients</span>
         </a>
@@ -401,11 +383,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Blank Page</h1>
+      <h1>Patients list</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Danh sách lớp</li>
+          <li class="breadcrumb-item active">Patients list</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -427,13 +409,14 @@
 													<th>Address</th>
 													<th>Phone</th>
 													<th>Last Visit</th>
+													<th></th>
 												</tr>
 											</thead>
 											<tbody>
 												<%
 												User patient = new User();
 												UserObject patientObject = new UserObject();
-												List<UserObject> patientList = patient.getUsersByRole("d");
+												List<UserObject> patientList = patient.getUsersByRole("p");
 												for (UserObject p : patientList) {
 												%>
 												<tr>
@@ -447,6 +430,13 @@
 													<td><%=p.getUser_address() %></td>
 													<td><%=p.getUser_phone() %></td>
 													<td><%=p.getUser_last_logined() %></td>
+														<td class="text-right">
+														<div class="actions">											
+															<a  data-toggle="modal" href="#delete_modal" data-id="<%=p.getUser_id()%>" class="btn btn-sm bg-danger-light btn-delete-speciality">
+																<i class="fe fe-trash"></i> Xoá
+															</a>
+														</div>
+													</td>
 												</tr>
 												<%
 												} 
@@ -457,10 +447,7 @@
 								</div>
 							</div>
 							<!-- /Recent Orders -->
-
         </div>
-
-
       </div>
     </section>
 
@@ -482,6 +469,35 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- MODAL -->
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Lắng nghe sự kiện click trên phần tử cha (ở đây là body)
+    document.body.addEventListener('click', function (event) {
+        var target = event.target;
+
+        // Kiểm tra xem phần tử được click có class là btn-edit-speciality hay không
+        if (target.classList.contains('btn-edit-speciality')) {
+            // Lấy thông tin từ phần tử được click
+            var spId = target.getAttribute('data-id');
+            var spName = target.getAttribute('data-name');
+            var spDescription = target.getAttribute('data-description');
+
+            // Điền thông tin vào modal sửa
+            document.getElementById('spIdEdit').value = spId;
+            document.getElementById('spNameEdit').value = spName;
+            document.getElementById('spDesEdit').value = spDescription;
+
+            // Mở modal sửa
+            $('#edit_specialities_details').modal('show');
+        } else if (target.classList.contains('btn-delete-speciality')) {
+            // Xử lý sự kiện xoá tương tự như trên
+            var spIdDel = target.getAttribute('data-id');
+            document.getElementById('spIdDel').value = spIdDel;
+            $('#delete_modal').modal('show');
+        }     
+    });
+});
+</script>
   <!-- Add Modal -->
   <div class="modal fade" id="Add_Class" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -562,7 +578,25 @@
     </div>
   </div>
   <!-- /ADD Modal -->
-  <!-- Edit Details Modal -->
+<!-- Delete Modal -->
+<div class="modal fade" id="delete_modal" aria-hidden="true" role="dialog">
+	<div class="modal-dialog modal-dialog-centered" role="document" >
+		<div class="modal-content">
+			<form action="../adminPatientDelete" method="post">
+			<div class="modal-body">
+				<div class="form-content p-2">
+					<h4 class="modal-title">Xoá người dùng</h4>
+					<p class="mb-4">Bạn có chắc chắn muốn xoá?</p>
+					<input type="hidden" name="sp_id_del" id="spIdDel">
+					<button type="submit" class="btn btn-primary">Xoá</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- /Delete Modal -->
 
   <!-- END MODAL -->
 
