@@ -1,6 +1,6 @@
 # WEBSITE ĐẶT LỊCH KHÁM BỆNH MEDICAL APPOINTMENT
  Kỹ thuật liên quan: JDBC, JSP Serverlet, javascript và bootstrap, Mysql, Ubuntu deploy.
-[![Video Thumbnail](home.png)](https://youtu.be/WwUKw5YcQ8M)
+[![Video Thumbnail](pics/home.png)](https://youtu.be/WwUKw5YcQ8M)
 
 # <a name="_toc155293392"></a>**TÀI LIỆU HƯỚNG DẪN SỬ DỤNG**
 ## <a name="_3s6kh4uclvtw"></a><a name="_toc155293393"></a>**Hướng dẫn cài đặt chương trình** 
