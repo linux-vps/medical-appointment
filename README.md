@@ -7,12 +7,12 @@
 - Cài đặt cơ sở dữ liệu MySql: tải và cài đặt mysql từ trang chính https://www.mysql.com/downloads/
 - Cài đặt IDE (Intergrated Development Environment): sử dụng IDE phổ biến như Eclipse, IntelliJ IDEA (tải từ JetBrains) hoặc NetBeans để phát triển:
 
-##### <a name="_toc155293305"></a>*. Hướng dẫn tải Esclipse IDE*
+##### <a name="_toc155293306"></a>*. Hướng dẫn cài đặt Apache Tomcat Server*
 - Cài đặt Apache Tomcat:
   - Apache Tomcat là máy chủ ứng dụng để chạy ứng dụng web java.
   - Thiết lập biến môi trường để Tomcat có thể được sử dụng toàn cục. Nếu sử dụng Eclipse, có thể tải Tomcat từ Eclipse Marketplace.
 
-##### <a name="_toc155293306"></a>*. Hướng dẫn cài đặt Apache Tomcat Server*
+##### <a name="_toc155293305"></a>*. Hướng dẫn tải Esclipse IDE*
 - Cấu hình IDE với JDK và Tomcat: thiết lập đường dẫn:
   - Eclipse: Window > Preferences > Java > Installed JREs và Window > Preferences > Server > Runtime Environments.
   - IntelliJ IDEA: File > Project Structure > Project > Project SDK và Run/Debug Configurations > Edit Configurations.
