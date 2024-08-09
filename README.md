@@ -1,5 +1,11 @@
-# 20231IT6020003_HealthCareSystem
-Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Serverlet, javascript và bootstrap
+# WEBSITE ĐẶT LỊCH KHÁM BỆNH MEDICAL APPOINTMENT
+ Kỹ thuật liên quan: JDBC, JSP Serverlet, javascript và bootstrap, Mysql, Ubuntu deploy.
+##### Demo video: https://youtu.be/WwUKw5YcQ8M
+<a href="https://youtu.be/WwUKw5YcQ8M">
+  <img src="pics/home.png" width="75%" />
+</a>
+
+
 # <a name="_toc155293392"></a>**TÀI LIỆU HƯỚNG DẪN SỬ DỤNG**
 ## <a name="_3s6kh4uclvtw"></a><a name="_toc155293393"></a>**Hướng dẫn cài đặt chương trình** 
 ### <a name="_toc155293394"></a>**Cấu hình, cài đặt môi trường phát triển**
@@ -7,12 +13,12 @@ Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Se
 - Cài đặt cơ sở dữ liệu MySql: tải và cài đặt mysql từ trang chính https://www.mysql.com/downloads/
 - Cài đặt IDE (Intergrated Development Environment): sử dụng IDE phổ biến như Eclipse, IntelliJ IDEA (tải từ JetBrains) hoặc NetBeans để phát triển:
 
-##### <a name="_toc155293305"></a>*. Hướng dẫn tải Esclipse IDE*
+##### <a name="_toc155293306"></a>*. Hướng dẫn cài đặt Apache Tomcat Server*
 - Cài đặt Apache Tomcat:
   - Apache Tomcat là máy chủ ứng dụng để chạy ứng dụng web java.
   - Thiết lập biến môi trường để Tomcat có thể được sử dụng toàn cục. Nếu sử dụng Eclipse, có thể tải Tomcat từ Eclipse Marketplace.
 
-##### <a name="_toc155293306"></a>*. Hướng dẫn cài đặt Apache Tomcat Server*
+##### <a name="_toc155293305"></a>*. Hướng dẫn tải Esclipse IDE*
 - Cấu hình IDE với JDK và Tomcat: thiết lập đường dẫn:
   - Eclipse: Window > Preferences > Java > Installed JREs và Window > Preferences > Server > Runtime Environments.
   - IntelliJ IDEA: File > Project Structure > Project > Project SDK và Run/Debug Configurations > Edit Configurations.
@@ -23,13 +29,13 @@ Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Se
 
 ##### <a name="_toc155293307"></a>*Hướng dẫn cấu hình thư viện JDBC*
 ### <a name="_toc155293395"></a>**Cài đặt chương trình**
-- <a name="_ag3mrokjqbx"></a><a name="_cekbljpum1r5"></a><a name="_9nz49srhfsr1"></a>Tải mã nguồn về máy từ github: <https://github.com/dmhaui/20231IT6020003_HealthCareSystem.git>
+- <a name="_ag3mrokjqbx"></a><a name="_cekbljpum1r5"></a><a name="_9nz49srhfsr1"></a>Tải mã nguồn về máy từ github: <https://github.com/linux-vps/medical-appointment.git>
 
 <a name="_ixoc3in447ea"></a>\*Sau khi tải thành công các công cụ, trình quản lý và mã nguồn, thực hiện chạy chương trình.
 
 - Tạo cơ sở dữ liệu MySQL:
-  - Trong MySQL workbench, tạo Schemas tên 20231IT6020003\_healthcare\_system, chọn và chạy mã sql.
-  - Tạo user có tên “it6020003\_minhdn” và password “123456”.
+  - Trong MySQL workbench, tạo Schemas tên data\_healthcare, chọn và chạy mã sql.
+  - Tạo user có tên “medical” và password “123456”.
   - Có thể tạo với tên khác nhau nhưng cần chỉnh sửa mã nguồn để hệ thống có thể khởi động.
 
 - Chạy chương trình trên Eclipse sau khi cài đặt, cấu hình môi trường:
@@ -46,14 +52,14 @@ Bài tập lớn môn lập trình Java nâng cao HaUI, sử dụng JDBC, JSP Se
 ### <a name="_z3panr8pcsih"></a><a name="_toc155293397"></a>**Đăng nhập vào chương trình** 
 <a name="_obmvmzl4mq0l"></a>	Sau khi truy cập vào trương trình từ địa chỉ local host, trên giao diện màn hình chính có 2 trường Tài khoản và Mật khẩu, người dùng sử dụng tài khoản và mật khẩu có trong cơ sở dữ liệu từ trước để đăng nhập vào hệ thống. Nếu muốn tạo một tài khoản mới, có thể vào trang đăng ký để tạo mới.
 
-##### <a name="_toc155293311"></a>*Màn hình đăng nhập*
+##### <a name="_toc155293311"><img src="pics/login.png" width="75%" /></a>*Màn hình đăng nhập*
 <a name="_84g7g43z7sv4"></a>	Nhập tài khoản vào trường tài khoản. Nhập mật khẩu vào trường mật khẩu. Nhấn đăng nhập. Hệ thống sẽ kiểm tra tính chính xác của thông tin tài khoản mật khẩu. Nếu đúng, với tài khoản bệnh nhân, hệ thống sẽ điều hướng đến trang chủ của bệnh nhân, với tài khoản bác sĩ, hệ thống sẽ điều hướng đến trang dashboard của bác sĩ và nếu đúng với tài khoản quản trị, hệ thống sẽ điều hướng đến trang quản trị.
 
 ##### <a name="_j79g2bw5gnu"></a><a name="_toc155293312"></a>*Màn hình Dashboard của bệnh nhân*
 
-##### <a name="_toc155293313"></a>*Màn hình Dashboard của bác sĩ*
+##### <a name="_toc155293313"><img src="pics/doctor.png" width="75%" /></a>*Màn hình Dashboard của bác sĩ*
 
-##### <a name="_toc155293314"></a>*Màn hình Dashboard của admin*
+##### <a name="_toc155293314"><img src="pics/admin.png" width="75%" /></a>*Màn hình Dashboard của admin*
 ### <a name="_1uow20hk05s9"></a><a name="_toc155293398"></a>**Các chức năng xử lý nghiệp vụ**
 #### <a name="_iy1btsvggkwo"></a>	**Đặt lịch khám bệnh**
 Sau khi tìm kiếm bác sĩ, người dùng được chuyển đến trang chọn lịch để chọn thời gian thăm khám.
