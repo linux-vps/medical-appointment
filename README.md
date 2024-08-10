@@ -1,6 +1,21 @@
 # WEBSITE ĐẶT LỊCH KHÁM BỆNH MEDICAL APPOINTMENT
  Kỹ thuật liên quan: JDBC, JSP Serverlet, javascript và bootstrap, Mysql, Ubuntu deploy.
 ##### Demo video: https://youtu.be/WwUKw5YcQ8M
+##### Testing accounts:
+For testing purposes, you can use the following credentials for each role:
+###### Patient
+
+Username: patient
+Password: patient
+###### Doctor
+
+Username: doctor
+Password: doctor
+###### Admin
+
+Username: admin
+Password: admin
+
 <a href="https://youtu.be/WwUKw5YcQ8M">
   <img src="pics/home.png" width="75%" />
 </a>
